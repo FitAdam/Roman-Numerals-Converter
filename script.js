@@ -1,5 +1,5 @@
 /*
-Example: arabic('CDLXXXIII') should return 483.
+Example: convertRomanIntoArabic('CDLXXXIII') should return 483.
 */
 
 function convertRomanIntoArabic(str) {
@@ -64,4 +64,26 @@ function convertRomanIntoArabic(str) {
     return arabicNum
 }
 
-console.log(convert('XC'))
+console.log(convertRomanIntoArabic('XC'))
+
+
+/*
+Example: convertArabicIntoRoman(483) should return 'CDLXXXIII'.
+*/
+
+
+function convertArabicIntoRoman(num) {
+    if (isNaN(num))
+        return NaN;
+    var digits = String(+num).split(""),
+        key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
+               "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
+               "","I","II","III","IV","V","VI","VII","VIII","IX"],
+        roman = "",
+        i = 3;
+    while (i--)
+        roman = (key[+digits.pop() + (i * 10)] || "") + roman;
+    return Array(+digits.join("") + 1).join("M") + roman;
+}
+
+console.log(convertArabicIntoRoman(1900))
