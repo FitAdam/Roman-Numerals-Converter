@@ -39,6 +39,7 @@ Example: convertRomanIntoArabic('CDLXXXIII') should return 483.
 */
 
 function convertRomanIntoArabic(str) {
+    str = str.toUpperCase();
     let splitString = str.split("");
     let arabicNum = 0;
     for (let i = 0; i < splitString.length; i++) {
@@ -94,8 +95,11 @@ function convertRomanIntoArabic(str) {
         }
         else if (splitString[i] === 'M') {
             arabicNum += 1000;
+        } else {
+            return 'Are you sure you typed right? Ex.: XIX';
         }
 
+        
     }
     return arabicNum
 }
@@ -128,12 +132,18 @@ function convertArabicIntoRoman(num) {
         return '';
       } else if (num === ''){
         return 0;
+      
+      } else if (!isNaN(num) === true){
+        num = parseInt(num);
+        for (let i = 0; i < romanMatrix.length; i++) {
+            if (num >= romanMatrix[i][0]) {
+              return romanMatrix[i][1] + convertArabicIntoRoman(num - romanMatrix[i][0]);
+            }
+          }
+      } else {
+        return 'Are you sure you typed right? Ex.: 103';
       }
-      for (let i = 0; i < romanMatrix.length; i++) {
-        if (num >= romanMatrix[i][0]) {
-          return romanMatrix[i][1] + convertArabicIntoRoman(num - romanMatrix[i][0]);
-        }
-      }
+     
     }
 
 //console.log(convertArabicIntoRoman(1900))
