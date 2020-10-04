@@ -1,3 +1,39 @@
+const intoArabicBtn = document.querySelector(".convertBtn");
+intoArabicBtn.addEventListener('click',convertNumber);
+
+const resetButton = document.querySelector(".resetBtn");
+resetButton.addEventListener('click',resetRomanField);
+
+const intoRomanBtn = document.querySelector(".convertBtn_1");
+intoRomanBtn.addEventListener('click',convertNumberReverse);
+
+const resetButton_1 = document.querySelector(".resetBtn_1");
+resetButton_1.addEventListener('click',resetArabicField);
+
+
+function convertNumber (){
+    
+    let input = document.getElementById("romanfm").value;
+    let convertedValue = convertRomanIntoArabic(input);
+    document.querySelector(".number").innerHTML = convertedValue;
+}
+
+function resetRomanField() {
+    document.getElementById("romanfm").value = "";
+}
+
+
+function convertNumberReverse (){
+    
+    let input = document.getElementById("arabicfm").value;
+    let convertedValue = convertArabicIntoRoman(input);
+    document.querySelector(".number_1").innerHTML = convertedValue;
+}
+
+function resetArabicField() {
+    document.getElementById("arabicfm").value = "";
+}
+
 /*
 Example: convertRomanIntoArabic('CDLXXXIII') should return 483.
 */
@@ -64,7 +100,7 @@ function convertRomanIntoArabic(str) {
     return arabicNum
 }
 
-console.log(convertRomanIntoArabic('XC'))
+//console.log(convertRomanIntoArabic('XC'))
 
 
 /*
@@ -73,17 +109,31 @@ Example: convertArabicIntoRoman(483) should return 'CDLXXXIII'.
 
 
 function convertArabicIntoRoman(num) {
-    if (isNaN(num))
-        return NaN;
-    var digits = String(+num).split(""),
-        key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
-               "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
-               "","I","II","III","IV","V","VI","VII","VIII","IX"],
-        roman = "",
-        i = 3;
-    while (i--)
-        roman = (key[+digits.pop() + (i * 10)] || "") + roman;
-    return Array(+digits.join("") + 1).join("M") + roman;
-}
+    let romanMatrix = [
+        [1000, 'M'],
+        [900, 'CM'],
+        [500, 'D'],
+        [400, 'CD'],
+        [100, 'C'],
+        [90, 'XC'],
+        [50, 'L'],
+        [40, 'XL'],
+        [10, 'X'],
+        [9, 'IX'],
+        [5, 'V'],
+        [4, 'IV'],
+        [1, 'I']
+      ];
+    if (num === 0) {
+        return '';
+      } else if (num === ''){
+        return 0;
+      }
+      for (let i = 0; i < romanMatrix.length; i++) {
+        if (num >= romanMatrix[i][0]) {
+          return romanMatrix[i][1] + convertArabicIntoRoman(num - romanMatrix[i][0]);
+        }
+      }
+    }
 
-console.log(convertArabicIntoRoman(1900))
+//console.log(convertArabicIntoRoman(1900))

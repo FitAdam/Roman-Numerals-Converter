@@ -1,14 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Converter</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    
 
+<body>
+    <main id="main">
+        <div>
+            <h1>Roman numerals</h1>
+            <div class="intro container">
+                <p>Roman numerals are a numeral system that originated in ancient Rome and remained the usual way
+                    of writing numbers throughout Europe well into the Late Middle Ages.
+                    Numbers in this system are represented by combinations of letters from the Latin alphabet.
+                    Modern usage employs seven symbols, each with a fixed integer value. <a
+                        href="https://en.wikipedia.org/wiki/Roman_numerals">source: wikipedia</a>.</p>
+            </div>
+
+        </div>
+        <div class="converter container">
+
+            <div class="roman">
+                <h3> Convert Roman number to Arabic.</h3>
+                <h4 class="number"> For example: XVIII.</h4>
+                <form action="" method="get" id="romanform">
+                    <label for="romanfm">Roman number to convert: </label>
+                    <input type="text" id="romanfm" name="romanfm">
+                </form>
+                <button type="submit" class="convertBtn"> press here to convert number.</button>
+                <button type="button" class="resetBtn"> press here to reset</button>
+            </div>
+
+            <div class="arabic">
+                <h3> Convert Arabic number to Roman.</h3>
+                <h4 class="number_1"> For example: 899.</h4>
+                <form action="" method="get" id="arabicform">
+                    <label for="arabicfm">Arabic number to convert: </label>
+                    <input type="text" id="arabicfm" name="arabicfm">
+                </form>
+                <button type="submit" class="convertBtn_1"> press here to convert number.</button>
+                <button type="button" class="resetBtn_1"> press here to reset</button>
+            </div>
+
+
+
+        </div>
+
+    </main>
+    <footer>
+        <p>© FitAdam 2020</p>
+    </footer>
     <script src="script.js"> </script>
 </body>
+
 </html>
