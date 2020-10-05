@@ -26,22 +26,22 @@
             <div class="roman">
                 <h3> Convert Roman number to Arabic.</h3>
                 <h4 class="number"> For example: XVIII.</h4>
-                <form action="" method="get" id="romanform">
+                <form action="/" method="POST" id="romanform">
                     <label for="romanfm">Roman number to convert: </label>
                     <input type="text" id="romanfm" name="romanfm">
                 </form>
                 <button type="submit" class="convertBtn"> press here to convert number.</button>
-                <button type="button" class="resetBtn"> press here to reset</button>
+                <button type="button" name ="submit" class="resetBtn"> press here to reset</button>
             </div>
 
             <div class="arabic">
                 <h3> Convert Arabic number to Roman.</h3>
                 <h4 class="number_1"> For example: 899.</h4>
-                <form action="" method="get" id="arabicform">
+                <form action="/" method="POST" id="arabicform">
                     <label for="arabicfm">Arabic number to convert: </label>
                     <input type="text" id="arabicfm" name="arabicfm">
                 </form>
-                <button type="submit" class="convertBtn_1"> press here to convert number.</button>
+                <button type="submit" name ="submit" class="convertBtn_1"> press here to convert number.</button>
                 <button type="button" class="resetBtn_1"> press here to reset</button>
             </div>
 
@@ -53,7 +53,7 @@
     <footer>
         <p>© FitAdam 2020</p>
     </footer>
-    <script src="script.js"> </script>
+    <script src="/script.js"> </script>
 </body>
 
 </html>
