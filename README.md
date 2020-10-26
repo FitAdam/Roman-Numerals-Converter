@@ -1,12 +1,19 @@
 ﻿# Roman Numerals Converter
 
-# Live Version
+## Tech used:
+* Node.js
+* Express.js
+* Javascript
+* HTML
+* CSS
+
+### Live Version
 
 To see an online version go to:
 
 [Roman Numerals Converter](https://nameless-lake-09939.herokuapp.com/)
 
-![]((rnc_home.jpg))
+![](rnc_home.jpg)
 
 ## Usage
 
